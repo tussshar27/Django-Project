@@ -1,0 +1,102 @@
+<!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">HRM</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li {% if request.path == '/dashboard' %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+        <a class="nav-link" href="{% url 'employee:dashboard' %}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Applications
+      </div>
+
+      <!-- Nav Item - Aplly for leave -->
+      <li {% if request.path == '/leave' %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+        <a class="nav-link external nav active" href="{% url 'employee:leave' %}">
+          <i class="fas fa-fw fa-calendar"></i>
+          <span>Apply for leave</span>
+        </a>
+      </li>
+
+      <!-- Nav Item - Apply for meeting -->
+      <li {% if request.path == '/meeting' %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+        <a class="nav-link external nav" href="{% url 'employee:meeting' %}">
+          <i class="fas fa-fw fa-chalkboard-teacher"></i>
+          <span>Apply for meeting</span>
+        </a>
+      </li>
+
+      <!-- Nav Item - Apply for reimbursements -->
+      <li {% if request.path == '/reimbursement' %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+        <a class="nav-link external nav" href="{% url 'employee:reimbursement' %}">
+          <i class="fas fa-fw fas fa-money-bill-wave"></i>
+          <span>Apply for reimbursements</span>
+        </a>
+      </li>
+
+
+      {% ifequal user_details.designation 'MGR'%}
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Management
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li {% if request.path == '/approveLeave' %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+        <a class="nav-link external nav" href="{% url 'employee:approveLeave' %}">
+          <i class="fas fa-fw fa-laugh"></i>
+          <span>Approve leaves</span>
+        </a>
+      </li>
+
+      <!-- Nav Item - Charts -->
+      <li {% if request.path == '/approveMeeting' %} class="nav-item active" {% else %} class="nav-item" {% endif %} class="nav-item">
+        <a class="nav-link external nav" href="{% url 'employee:approveMeeting' %}">
+          <i class="fas fa-fw fas fa-chalkboard"></i>
+          <span>Approve meetings</span></a>
+      </li>
+
+      <!-- Nav Item - Tables -->
+      <li {% if request.path == '/approveReimbursement' %} class="nav-item active" {% else %} class="nav-item" {% endif %} class="nav-item">
+        <a class="nav-link external nav" href="{% url 'employee:approveReimbursement' %}">
+          <i class="fas fa-fw fas fa-money-bill-wave-alt"></i>
+          <span>Approve reimbursements</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+
+      {% endifequal %}
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+    <script>
+    $('.dropdown-toggle').dropdown()
+    </script>
+
+  

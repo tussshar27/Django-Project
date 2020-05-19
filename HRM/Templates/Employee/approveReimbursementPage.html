@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load django_tables2 %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<!-- DataTales Example -->
+           <div class="col-xl-12 col-lg-12">
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Reimbursement applications</h6>
+            </div>
+            <div class="card-body">
+
+              {% render_table table %}
+
+
+            </div>
+          </div>
+          </div>
+
+
+<script>
+$(document).ready( function () {
+    $('#managerReimbursementTable').DataTable();
+    $( ".datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      yearRange: "1900:2012",
+      // You can put more options here.
+
+    });
+} );
+
+</script>
+
+{% endblock %}

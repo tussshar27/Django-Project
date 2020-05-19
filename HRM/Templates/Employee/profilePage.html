@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Profile details</h1>
+          </div>
+
+          <!-- Content Row -->
+          <div class="row">
+            <!-- Area Chart -->
+            <div class="col-xl-12 col-lg-12">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Your profile</h6>
+                  <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                      <div class="dropdown-header">Dropdown Header:</div>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body text-center">
+                  <!--<div class="chart-area">
+                    <canvas id="myAreaChart"></canvas>
+                  </div>-->
+
+                  <div class="emp-profile">
+                    <form method="post">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="profile-img">
+                            <img src="{{ user_details.profile_image.url }}" alt="" />
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="profile-head">
+                            <h5>
+                             {{ request.user.username }}
+                            </h5>
+                            <h6>
+                             Something
+                            </h6>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                              <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <!-- <div class="col-md-2">
+                          <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
+                        </div> -->
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="profile-work">
+                            <p>
+                              "Some quote"
+                            </p>
+                          </div>
+                        </div>
+                        <div class="col-md-8">
+                          <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <label>Employee Id</label>
+                                </div>
+                                <div class="col-md-6">
+                                  <p>{{request.user.pk}}</p>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <label>Name</label>
+                                </div>
+                                <div class="col-md-6">
+                                  <p>{{user_details.first_name}} {{user_details.last_name}}</p>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <label>Email Id</label>
+                                </div>
+                                <div class="col-md-6">
+                                  <p>{{user_details.emailId}}</p>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <label>Phone no</label>
+                                </div>
+                                <div class="col-md-6">
+                                  <p>{{user_details.phoneNo}}</p>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <label>Designation</label>
+                                </div>
+                                <div class="col-md-6">
+                                  <p>{{user_details.designation}}</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+
+{% endblock %}
